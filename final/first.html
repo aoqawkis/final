@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система бронирования номеров</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header-section">
+        <h1>Добро пожаловать в нашу систему бронирования номеров</h1>
+        <button id="theme-toggle">Сменить тему</button>
+        <div id="auth-status">Вы не вошли</div>
+        <button id="login-btn">Войти</button>
+        <button id="logout-btn" style="display: none;">Выйти</button>
+    </header>
+
+    <nav class="navbar">
+        <a href="#rooms" class="nav-link">Номера</a>
+        <a href="#services" class="nav-link">Услуги</a>
+        <a href="#contact" class="nav-link">Свяжитесь с нами</a>
+    </nav>
+
+    <!-- Форма регистрации -->
+    <div id="signup-form" style="display:none;">
+        <h2>Регистрация</h2>
+        <label for="signup-name">Имя:</label>
+        <input type="text" id="signup-name" required>
+        <label for="signup-email">Email:</label>
+        <input type="email" id="signup-email" required>
+        <label for="signup-password">Пароль:</label>
+        <input type="password" id="signup-password" required>
+        <button id="signup-submit">Зарегистрироваться</button>
+    </div>
+
+    <!-- Форма входа -->
+    <div id="login-form" style="display:none;">
+        <h2>Вход</h2>
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" required>
+        <label for="login-password">Пароль:</label>
+        <input type="password" id="login-password" required>
+        <button id="login-submit">Войти</button>
+    </div>
+
+    <main class="main-content">
+        <section id="filter-section">
+            <label for="filter-select">Фильтр по типу номера:</label>
+            <select id="filter-select">
+                <option value="all">Все</option>
+                <option value="single">Одноместный</option>
+                <option value="double">Двухместный</option>
+                <option value="suite">Люкс</option>
+            </select>
+            <input type="text" id="search-bar" placeholder="Введите для поиска...">
+            <button id="search-btn">Поиск</button>
+        </section>
+
+        <section id="rooms" class="layout-section">
+            <h2>Доступные номера</h2>
+            <ul>
+                <li class="room-item" data-type="single">
+                    <h3><a href="single-room.html">Одноместный номер</a></h3>
+                    <img src="img/single-room.jpg" alt="Одноместный номер" class="room-image">
+                    <p>Цена: 100$/ночь</p>
+                    <p>Описание: Уютный одноместный номер с видом на город.</p>
+                    <p class="more-info" style="display: none;">Дополнительная информация о номере.</p>
+                    <button class="read-more">Показать больше</button>
+                    <div class="star-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </li>
+                <li class="room-item" data-type="double">
+                    <h3><a href="double-room.html">Двухместный номер</a></h3>
+                    <img src="img/double-room.jpg" alt="Двухместный номер" class="room-image">
+                    <p>Цена: 150$/ночь</p>
+                    <p>Описание: Просторный номер с двумя кроватями, идеально для семей.</p>
+                    <p class="more-info" style="display: none;">Дополнительная информация о номере.</p>
+                    <button class="read-more">Показать больше</button>
+                    <div class="star-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </li>
+                <li class="room-item" data-type="suite">
+                    <h3><a href="luxury-suite.html">Люкс</a></h3>
+                    <img src="img/suite.jpg" alt="Люкс" class="room-image">
+                    <p>Цена: 300$/ночь</p>
+                    <p>Описание: Роскошный люкс с премиальными удобствами и личным балконом.</p>
+                    <p class="more-info" style="display: none;">Дополнительная информация о номере.</p>
+                    <button class="read-more">Показать больше</button>
+                    <div class="star-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="services" class="layout-section">
+            <h2>Наши услуги</h2>
+            <ul class="services-list">
+                <li>Бесплатный Wi-Fi</li>
+                <li>Комплиментарный завтрак</li>
+                <li>Круглосуточная поддержка клиентов</li>
+                <li>Бесплатная парковка</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="layout-section">
+            <h2>Свяжитесь с нами для бронирования</h2>
+            <form class="booking-form" id="booking-form">
+                <label for="name">Ваше имя:</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+
+                <label for="room">Тип номера:</label>
+                <select id="room" name="room" class="form-input" required>
+                    <option value="single">Одноместный номер</option>
+                    <option value="double">Двухместный номер</option>
+                    <option value="suite">Люкс</option>
+                </select>
+
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" rows="4" class="form-textarea" required>Введите ваши пожелания или вопросы здесь.</textarea>
+
+                <input type="button" value="Отправить" class="submit-btn" id="submit-btn">
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer-bg">
+        <p>&copy; 2024 Система бронирования | Свяжитесь с нами: booking@example.com | Телефон: +7 (708) 359 56 52</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
